@@ -2,6 +2,7 @@ class DealsController < ApplicationController
   # GET /deals
   # GET /deals.json
   before_filter :authenticate_user!
+  #  before_filter :is_admin?
   def index
     @deals = Deal.all
 
@@ -15,7 +16,7 @@ class DealsController < ApplicationController
   # GET /deals/1.json
   def show
     @deal = Deal.find(params[:id])
-
+    @map = Deal.find(params[:id]).to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @deal }
@@ -41,8 +42,14 @@ class DealsController < ApplicationController
   # POST /deals
   # POST /deals.json
   def create
+    require 'geokit'
     @deal = Deal.new(params[:deal])
-
+    @deal.image = params[:file]
+    @deal.address = @deal.street+","+@deal.city+","+@deal.state+","+@deal.country
+    coords = Geokit::Geocoders::GoogleGeocoder.geocode(@deal.address)
+    s = coords.to_a
+    @deal.longitude = s[1]
+    @deal.latitude = s[0]
     respond_to do |format|
       if @deal.save
         format.html { redirect_to @deal, notice: 'Deal was successfully created.' }

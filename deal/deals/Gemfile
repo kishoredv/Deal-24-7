@@ -8,8 +8,8 @@ gem 'rails', '3.2.9'
 gem 'sqlite3'
 gem 'carrierwave'
 gem 'gmaps4rails'
-gem "geokit"
-gem 'execjs'
+#gem "geokit"
+#gem 'execjs'
 gem 'therubyracer'
 #gem 'rmagick', "2.13.1"
 # Gems used only for assets and not required
