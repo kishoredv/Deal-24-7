@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Deals::Application.config.secret_token = 'c61c706eae959e979b52276a2261df04dceba87fa837d70e07ebfffa10448fa4bb0f572cadd119cf50e66e9f3ee1b2f4706a676f720f9d28b6d521718a43751e'
+Deals::Application.config.secret_token = 'a8b136b2bbf3773a77f1cb19e855c2fe2f9c852c5749fb9bc99907f30a3877bc3ae71c1bffc9c8f45aabecf5ba98979957ebafb0a3eb28f24678c88617c437fb'
