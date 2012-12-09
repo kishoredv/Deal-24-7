@@ -3,21 +3,32 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Offers</th>
+    <th>Address</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @deals.each do |deal| %>
-  <tr>
-    <td><%= deal.name %></td>
-    <td><%= link_to 'Show', deal %></td>
-    <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
-    <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <% @deals.each do |deal| %>
+    <tr>
+      <td><%= deal.name %></td>
+      <td><%= deal.description %></td>
+      <td><%= deal.price %></td>
+      <td><%= deal.offers %></td>
+      <td><%= deal.address %></td>
+      <td><%= link_to 'Show', deal %></td>
+      <% if is_admin? %>
+        <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
+        <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Deal', new_deal_path %>
+<% if is_admin? %>
+  <%= link_to 'New Deal', new_deal_path %>
+<% end %>
