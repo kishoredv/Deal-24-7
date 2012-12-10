@@ -1,6 +1,6 @@
 <h1>Listing deals</h1>
 
-<table>
+<table border ="1">
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -10,6 +10,8 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
+
   </tr>
 
   <% @deals.each do |deal| %>
@@ -20,15 +22,27 @@
       <td><%= deal.offers %></td>
       <td><%= deal.address %></td>
       <td><%= link_to 'Show', deal %></td>
-      <% if is_admin? %>
-        <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
-        <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      <% if user_signed_in? %>
+        <% if is_admin? or deal.user_id == current_user.id %>
+          <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
+          <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       <% end %>
+      <% if user_signed_in? %>
+        <% if is_admin? and deal.user_id == current_user.id %>
+          <td>Your deal</td>
+        <% end %>
+      <% end %>
+
     </tr>
   <% end %>
 </table>
 
 <br />
-<% if is_admin? %>
+<% if user_signed_in? %>
   <%= link_to 'New Deal', new_deal_path %>
+  <% if is_admin? %>
+    <%= link_to "All deals done", soldouts_path  %>
+  <% end %>
 <% end %>

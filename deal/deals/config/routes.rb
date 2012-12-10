@@ -1,4 +1,7 @@
 Deals::Application.routes.draw do
+  resources :soldouts
+
+
   resources :deals
 
 

@@ -1,11 +1,10 @@
 class DealsController < ApplicationController
   # GET /deals
   # GET /deals.json
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index, :show]
   #  before_filter :is_admin?
   def index
     @deals = Deal.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @deals }
@@ -45,7 +44,8 @@ class DealsController < ApplicationController
     require 'geokit'
     @deal = Deal.new(params[:deal])
     @deal.image = params[:file]
-    @deal.address = @deal.street+","+@deal.city+","+@deal.state+","+@deal.country
+    @deal.user_id = current_user.id
+    @deal.address = @deal.street+","+@deal.city+","+@deal.state+","+@deal.country+","+@deal.postal_code
     coords = Geokit::Geocoders::GoogleGeocoder.geocode(@deal.address)
     s = coords.to_a
     @deal.longitude = s[1]
@@ -88,4 +88,6 @@ class DealsController < ApplicationController
       format.json { head :no_content }
     end
   end
+ 
+ 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204173723) do
+ActiveRecord::Schema.define(:version => 20121206110128) do
 
   create_table "deals", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(:version => 20121204173723) do
     t.string   "state"
     t.string   "postal_code"
     t.string   "country"
+    t.string   "street"
+    t.integer  "user_id"
+  end
+
+  create_table "soldouts", :force => true do |t|
+    t.string   "customer_name"
+    t.string   "customer_email"
+    t.string   "card_number"
+    t.integer  "expiry_date_year"
+    t.integer  "expiry_date_month"
+    t.string   "cvv"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -12,7 +12,9 @@
 
 <p>
   <b>Image:</b>
+
   <%= image_tag(@deal.image_url) if @deal.image? %>
+
 </p>
 
 <p>
@@ -32,9 +34,15 @@
   <b>Address:</b>
   <%= @deal.address %>
 </p>
+<% if user_signed_in? %>
+  <% if is_admin? or @deal.user_id == current_user.id  %>
+    <%= link_to 'Edit', edit_deal_path(@deal) %> |
 
-<% if is_admin? %>
-  <%= link_to 'Edit', edit_deal_path(@deal) %> |
-
+  <% end %>
+<% end %>
+<% if @deal.user_id != current_user.id %>
+  <%= link_to 'Buy', new_soldout_path %> |
+<% else %>
+  Your Deal |
 <% end %>
 <%= link_to 'Back', deals_path %>

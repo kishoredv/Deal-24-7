@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer name:</b>
+  <%= @soldout.customer_name %>
+</p>
+
+<p>
+  <b>Customer email:</b>
+  <%= @soldout.customer_email %>
+</p>
+
+<p>
+  <b>Card number:</b>
+  <%= @soldout.card_number %>
+</p>
+
+<p>
+  <b>Expiry date:</b>
+  <%= @soldout.expiry_date_year %>-<%= @soldout.expiry_date_month %>
+</p>
+
+<p>
+  <b>Cvv:</b>
+  <%= @soldout.cvv %>
+</p>
+
+
+
+<%= link_to 'Back', soldouts_path %>
