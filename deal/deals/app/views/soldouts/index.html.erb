@@ -4,9 +4,7 @@
   <tr>
     <th>Customer name</th>
     <th>Customer email</th>
-    <th>Card number</th>
-    <th>Expiry date</th>
-    <th>Cvv</th>
+   
     <th></th>
     <th></th>
   </tr>
@@ -15,9 +13,6 @@
   <tr>
     <td><%= soldout.customer_name %></td>
     <td><%= soldout.customer_email %></td>
-    <td><%= soldout.card_number %></td>
-    <td><%= soldout.expiry_date_year %>-<%= soldout.expiry_date_month %></td>
-    <td><%= soldout.cvv %></td>
     <td><%= link_to 'Show', soldout %></td>
     <td><%= link_to 'Destroy', soldout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

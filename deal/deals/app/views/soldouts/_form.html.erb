@@ -28,12 +28,12 @@
     <%= f.text_field :card_number %>
   </div>
   <div class="field">
-    <%= f.label :expiry_date %><br />
-    <%= f.text_field :expiry_date_month %> - <%= f.text_field :expiry_date_year %>
+    <%= f.label :expiry_date_Month_Year %><br />
+    <%= f.text_field :expiry_date_month %>  <%= f.text_field :expiry_date_year %>
   </div>
   <div class="field">
     <%= f.label :cvv %><br />
-    <%= f.text_field :cvv %>
+    <%= f.password_field :cvv %>
   </div>
   <div class="actions">
     <%= f.submit "pay" %>
