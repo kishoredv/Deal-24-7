@@ -1,12 +1,12 @@
 <br><br>
 <table align="center">
 <td>
-<h2>Hot Deals</h2>
+<h3>Hot Deals</h3>
 <td>
 </table>
 
 
-<table border ="2">
+<table border ="1">
   <tr>
     <th>Deal</th>
     <th>Description</th>
