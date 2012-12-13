@@ -44,7 +44,7 @@ class SoldoutsController < ApplicationController
     end
     respond_to do |format|
       if @soldout.save
-        format.html { redirect_to deals_path, flash[:notice] => 'Your deal was successfully done.' }
+        format.html { redirect_to deals_path, :notice => 'Your deal was successfully done.' }
         format.json { render json: @soldout, status: :created, location: @soldout }
       else
         format.html { render action: "new" }

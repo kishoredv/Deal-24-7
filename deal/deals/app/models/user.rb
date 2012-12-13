@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   has_many :deals, :foreign_key => :user_id
+  has_one :profile, :foreign_key => :user_id
 end

@@ -1,4 +1,10 @@
 Deals::Application.routes.draw do
+  resources :profiles do
+    get :linkedin_index, :on => :collection
+    get :linkedin_callback, :on => :collection
+  end
+
+
   resources :soldouts
 
 
