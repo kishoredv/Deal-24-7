@@ -83,7 +83,7 @@ class ProfilesController < ApplicationController
 
   def linkedin_index
     client = LinkedIn::Client.new( "9r6msauxrjxk", "tbPMfG9PVD2zAfZc")
-
+)
     request_token = client.request_token(:oauth_callback =>"http://#{request.host_with_port}/profiles/linkedin_callback", :user_id => current_user.id)
     session[:rtoken] = request_token.token
     session[:rsecret] = request_token.secret

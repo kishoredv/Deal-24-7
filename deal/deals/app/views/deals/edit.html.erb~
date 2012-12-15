@@ -1,6 +1,5 @@
-<table align="center">
-<td><h3>Edit Your Deal</h3><td>
-</table>
+<h3>Edit Your Deal</h3>
+
 <%= render 'form' %>
 
 <%= link_to 'Show', @deal %> |

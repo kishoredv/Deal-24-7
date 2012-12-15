@@ -1,16 +1,16 @@
-<br><br>
+<br>
 <table align="center">
 <td>
-<h2>Hot Deals</h2>
+<marquee behaviour="slide" direction="left"><h2>Escapes</h2></marquee>
 <td>
-</table>
+</table><br>
 
 
 <table border ="2">
   <tr>
-    <th>Deal</th>
-    <th>Description</th>
-    <th>Company</th>
+    <th>Escape</th>
+ 
+   
     <th>Price</th>
     <th>Offers</th>
     <th>Address</th>
@@ -31,15 +31,15 @@
   <% @deals.each do |deal| %>
     <tr>
       <td><%= deal.name %></td>
-      <td><%= deal.description %></td>
-      <td><%= deal.company %></td>
+    
+     
       <td><%= deal.price %></td>
       <td><%= deal.offers %></td>
       <td><%= deal.address %></td>
 
 <td><%= link_to (image_tag deal.image, :style => "height:100px"), deal %>
 
-      <td><%= link_to 'Show', deal %></td>
+      <td><%= link_to 'View', deal %></td>
 
       <% if user_signed_in? %>
         <% if is_admin? or deal.user_id == current_user.id %>
@@ -59,8 +59,8 @@
 
 <br />
 <% if user_signed_in? %>
-  <%= link_to 'New Deal', new_deal_path %>
+  <%= link_to 'Add Deal', new_deal_path %>
   <% if is_admin? %>
-    <%= link_to "All deals done", soldouts_path  %>
+    <%= link_to "Sold Out Details", soldouts_path  %>
   <% end %>
 <% end %>
